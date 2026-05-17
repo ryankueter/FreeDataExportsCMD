@@ -1,10 +1,10 @@
 # FreeDataExportsCMD
 
-FreeDataExportsCMD is a .NET tool that converts CSV or TSV text into `.xlsx` or `.ods` spreadsheet files using [FreeDataExportsv2](https://www.nuget.org/packages/FreeDataExportsv2).
+FreeDataExportsCMD is a .NET tool that converts CSV or TSV text into **.xlsx** or **.ods** spreadsheet files using [FreeDataExportsv2](https://www.nuget.org/packages/FreeDataExportsv2).
 
-It is designed for command-line pipelines: one command writes comma-delimited or tab-delimited data to stdout, and `FreeDataExportsCMD` reads that data from stdin and saves a spreadsheet.
+It is designed for command-line pipelines: one command writes comma-delimited or tab-delimited data to stdout, and **FreeDataExportsCMD** reads that data from stdin and saves a spreadsheet.
 
-> Use a single pipe character, `|`, to pass CSV/TSV into this tool. In most shells, `||` means "run the next command only if the first command fails."
+> Use a single pipe character, **|**, to pass CSV/TSV into this tool.
 
 ## Install
 
@@ -83,7 +83,7 @@ FreeDataExportsCMD --input "C:\mydir\data.csv" --output "C:\mydir\data.xlsx"
 - Comma-delimited and tab-delimited input are supported.
 - Quoted CSV fields are supported, including escaped quotes.
 - The first input row is treated as a header row and styled in the spreadsheet.
-- Use `--sheetname` to control the worksheet tab name.
-- Use `--createdby` to set spreadsheet creator metadata.
+- Use **--sheetname** to control the worksheet tab name.
+- Use **--createdby** to set spreadsheet creator metadata.
 - Values are lightly inferred as numbers, dates, booleans, or text. Numeric strings with leading zeroes are preserved as text.
 - Status messages are written to stderr so stdout stays available for pipeline use.
