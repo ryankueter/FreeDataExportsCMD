@@ -9,6 +9,7 @@ internal sealed record CommandLineOptions
     public string FileName { get; init; } = "export";
     public string SheetName { get; init; } = "Data";
     public string CreatedBy { get; init; } = "FreeDataExportsCMD";
+    public bool IncludeHeaderRow { get; init; } = true;
     public OutputFormat Format { get; init; } = OutputFormat.Xlsx;
     public DelimiterKind Delimiter { get; init; } = DelimiterKind.Auto;
 

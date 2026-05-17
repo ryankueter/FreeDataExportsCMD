@@ -22,10 +22,14 @@ Options:
   -s, --sheet, --sheetname <name>
                                Worksheet tab name. Defaults to Data.
       --createdby <name>       Creator metadata written to the spreadsheet. Defaults to FreeDataExportsCMD.
+      --includeheader [true|false]
+                               Include the first input row in the spreadsheet. Defaults to true.
+      --noheader               Exclude the first input row from the spreadsheet.
   -h, --help                   Show help.
 
 Examples:
   some-report-command | FreeDataExportsCMD --format xlsx --name report.xlsx --path "C:\mydir" --sheetname Orders
+  some-report-command | FreeDataExportsCMD --output "C:\mydir\report.xlsx" --noheader
   some-report-command | FreeDataExportsCMD --output "C:\mydir\report.ods"
 """);
     }

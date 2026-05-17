@@ -28,6 +28,11 @@ internal sealed class ExportApplication(
             throw new CommandLineException("The input did not contain any rows.");
         }
 
+        if (!options.IncludeHeaderRow && rows.Count == 1)
+        {
+            throw new CommandLineException("The input did not contain any data rows to export after excluding the header row.");
+        }
+
         var savePath = options.GetSavePath();
         Directory.CreateDirectory(Path.GetDirectoryName(savePath)!);
 

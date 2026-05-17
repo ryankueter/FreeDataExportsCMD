@@ -43,6 +43,12 @@ internal static class CommandLineParser
                 case "--createdby":
                     options = options with { CreatedBy = ReadValue(args, ref i, arg) };
                     break;
+                case "--includeheader":
+                    options = options with { IncludeHeaderRow = ReadOptionalBoolean(args, ref i, arg, defaultValue: true) };
+                    break;
+                case "--noheader":
+                    options = options with { IncludeHeaderRow = false };
+                    break;
                 case "-f":
                 case "--format":
                     options = options with { Format = ParseFormat(ReadValue(args, ref i, arg)) };
@@ -107,6 +113,26 @@ internal static class CommandLineParser
 
         index++;
         return args[index];
+    }
+
+    private static bool ReadOptionalBoolean(string[] args, ref int index, string optionName, bool defaultValue)
+    {
+        if (index + 1 >= args.Length || args[index + 1].StartsWith('-'))
+        {
+            return defaultValue;
+        }
+
+        index++;
+        return args[index].Trim().ToLowerInvariant() switch
+        {
+            "true" => true,
+            "yes" => true,
+            "1" => true,
+            "false" => false,
+            "no" => false,
+            "0" => false,
+            _ => throw new CommandLineException($"{optionName} must be true or false.")
+        };
     }
 
     private static OutputFormat ParseFormat(string value) =>

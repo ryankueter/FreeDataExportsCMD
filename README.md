@@ -50,6 +50,12 @@ Name the worksheet tab and set creator metadata:
 some-report-command | FreeDataExportsCMD --format xlsx --name report.xlsx --path "C:\mydir" --sheetname Orders --createdby "Contoso Reports"
 ```
 
+Exclude the first input row from the spreadsheet:
+
+```powershell
+some-report-command | FreeDataExportsCMD --output "C:\mydir\report.xlsx" --noheader
+```
+
 Save to a full file path:
 
 ```powershell
@@ -75,6 +81,9 @@ FreeDataExportsCMD --input "C:\mydir\data.csv" --output "C:\mydir\data.xlsx"
 -s, --sheet, --sheetname <name>
                              Worksheet tab name. Defaults to Data.
     --createdby <name>       Creator metadata written to the spreadsheet. Defaults to FreeDataExportsCMD.
+    --includeheader [true|false]
+                             Include the first input row in the spreadsheet. Defaults to true.
+    --noheader               Exclude the first input row from the spreadsheet.
 -h, --help                   Show help.
 ```
 
@@ -83,6 +92,7 @@ FreeDataExportsCMD --input "C:\mydir\data.csv" --output "C:\mydir\data.xlsx"
 - Comma-delimited and tab-delimited input are supported.
 - Quoted CSV fields are supported, including escaped quotes.
 - The first input row is treated as a header row and styled in the spreadsheet.
+- Use **--noheader** or **--includeheader false** to exclude the first input row from the spreadsheet.
 - Use **--sheetname** to control the worksheet tab name.
 - Use **--createdby** to set spreadsheet creator metadata.
 - Values are lightly inferred as numbers, dates, booleans, or text. Numeric strings with leading zeroes are preserved as text.
