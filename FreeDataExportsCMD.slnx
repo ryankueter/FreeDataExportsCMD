@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/demo/">
+    <Project Path="demo/DemoCsvProducer/DemoCsvProducer.csproj" />
+  </Folder>
+  <Project Path="FreeDataExportsCMD.csproj" />
+</Solution>
